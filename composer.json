@@ -1,6 +1,6 @@
 {
 	"description": "Parse and format to LCOV your code coverage reports.",
-	"homepage": "https://github.com/cedx/lcov.php",
+	"homepage": "https://github.com/CedX/Lcov.php",
 	"license": "MIT",
 	"name": "cedx/lcov",
 	"type": "library",
@@ -37,7 +37,7 @@
 		"phpunit/phpunit": "^13.1.10"
 	},
 	"support": {
-		"docs": "https://github.com/cedx/lcov.php/tree/main/docs",
-		"issues": "https://github.com/cedx/lcov.php/issues"
+		"docs": "https://github.com/CedX/Lcov.php/tree/main/docs",
+		"issues": "https://github.com/CedX/Lcov.php/issues"
 	}
 }

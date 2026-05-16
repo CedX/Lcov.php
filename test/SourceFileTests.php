@@ -19,10 +19,10 @@ final class SourceFileTests extends TestCase {
 			branches: new BranchCoverage,
 			functions: new FunctionCoverage,
 			lines: new LineCoverage,
-			path: "/home/cedx/lcov.php"
+			path: "/home/cedx/Lcov.php"
 		);
 
-		$format = "SF:/home/cedx/lcov.php\n$sourceFile->functions\n$sourceFile->branches\n$sourceFile->lines\nend_of_record";
+		$format = "SF:/home/cedx/Lcov.php\n$sourceFile->functions\n$sourceFile->branches\n$sourceFile->lines\nend_of_record";
 		assertEquals($format, (string) $sourceFile);
 	}
 }

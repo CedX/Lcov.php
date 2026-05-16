@@ -33,9 +33,9 @@ final class ReportTests extends TestCase {
 		// It should contain three source files.
 		assertCount(3, $report->sourceFiles);
 		assertInstanceOf(SourceFile::class, $report->sourceFiles[0]);
-		assertEquals("/home/cedx/lcov.php/fixture.php", $report->sourceFiles[0]->path);
-		assertEquals("/home/cedx/lcov.php/func1.php", $report->sourceFiles[1]->path);
-		assertEquals("/home/cedx/lcov.php/func2.php", $report->sourceFiles[2]->path);
+		assertEquals("/home/cedx/Lcov.php/fixture.php", $report->sourceFiles[0]->path);
+		assertEquals("/home/cedx/Lcov.php/func1.php", $report->sourceFiles[1]->path);
+		assertEquals("/home/cedx/Lcov.php/func2.php", $report->sourceFiles[2]->path);
 
 		// It should have detailed branch coverage.
 		/** @var BranchCoverage $branches */
