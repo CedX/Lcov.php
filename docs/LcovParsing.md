@@ -27,7 +27,7 @@ Converting the `Report` instance to [JSON](https://www.json.org) format will ret
   "testName": "Example",
   "sourceFiles": [
     {
-      "path": "/home/cedx/Lcov.php/fixture.php",
+      "path": "/home/CedX/Lcov.php/Fixture.php",
       "branches": {
         "found": 0,
         "hit": 0,

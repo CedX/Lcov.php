@@ -7,7 +7,7 @@ All you have to do is to create the adequate structure using these different cla
 use Belin\Lcov\{FunctionCoverage, LineCoverage, LineData, Report, SourceFile};
 
 $sourceFile = new SourceFile(
-  path: "/home/cedx/Lcov.php/fixture.php",
+  path: "/home/CedX/Lcov.php/Fixture.php",
   functions: new FunctionCoverage(found: 1, hit: 1),
   lines: new LineCoverage(found: 2, hit: 2, data: [
     new LineData(lineNumber: 6, executionCount: 2, checksum: "PF4Rz2r7RTliO9u6bZ7h6g"),
@@ -23,7 +23,7 @@ The `Report->__toString()` method will return a [LCOV](https://github.com/linux-
 
 ```lcov
 TN:Example
-SF:/home/cedx/Lcov.php/fixture.php
+SF:/home/CedX/Lcov.php/Fixture.php
 FNF:1
 FNH:1
 DA:6,2,PF4Rz2r7RTliO9u6bZ7h6g
