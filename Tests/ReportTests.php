@@ -20,7 +20,7 @@ final class ReportTests extends TestCase {
 	 * Method invoked before the first test is run.
 	 */
 	public static function setUpBeforeClass(): void {
-		self::$coverage = file_get_contents("res/Lcov.info") ?: "";
+		self::$coverage = file_get_contents("Resources/Lcov.info") ?: "";
 	}
 
 	#[Test, TestDox("parse()")]
