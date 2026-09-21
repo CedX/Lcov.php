@@ -4,7 +4,7 @@ Parse and format [LCOV](https://github.com/linux-test-project/lcov) coverage rep
 ## Quick start
 Install the latest version of **LCOV Reports for PHP** with [Composer](https://getcomposer.org) package manager:
 
-```shell
+```powershell
 composer require cedx/lcov
 ```
 
