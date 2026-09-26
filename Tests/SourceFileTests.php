@@ -15,13 +15,7 @@ final class SourceFileTests extends TestCase {
 	public function testToString(): void {
 		assertEquals("SF:\nend_of_record", (string) new SourceFile(""));
 
-		$sourceFile = new SourceFile(
-			branches: new BranchCoverage,
-			functions: new FunctionCoverage,
-			lines: new LineCoverage,
-			path: "/home/CedX/Lcov.php"
-		);
-
+		$sourceFile = SourceFile::withCoverage("/home/CedX/Lcov.php");
 		$format = "SF:/home/CedX/Lcov.php\n$sourceFile->functions\n$sourceFile->branches\n$sourceFile->lines\nend_of_record";
 		assertEquals($format, (string) $sourceFile);
 	}

@@ -45,7 +45,7 @@ class Report implements \Stringable {
 	public static function parse(string $coverage): self {
 		$offset = 0;
 		$report = new self("");
-		$sourceFile = new SourceFile("", branches: new BranchCoverage, functions: new FunctionCoverage, lines: new LineCoverage);
+		$sourceFile = SourceFile::withCoverage("");
 
 		foreach (preg_split('/\r?\n/', $coverage) ?: [] as $line) {
 			$offset++;
@@ -117,7 +117,7 @@ class Report implements \Stringable {
 					break;
 
 				case Token::SourceFile:
-					$sourceFile = new SourceFile($data[0], branches: new BranchCoverage, functions: new FunctionCoverage, lines: new LineCoverage);
+					$sourceFile = SourceFile::withCoverage($data[0]);
 					break;
 
 				case Token::EndOfRecord:
