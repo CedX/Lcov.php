@@ -1,7 +1,7 @@
 # LCOV Formatting
-Each class provided by this library has a dedicated `__toString()` instance method returning the corresponding data
+Each type provided by this library has a dedicated `__toString()` instance method returning the corresponding data
 formatted as [LCOV](https://github.com/linux-test-project/lcov) string.
-All you have to do is to create the adequate structure using these different classes, and to export the final result:
+All you have to do is to create the adequate structure using these different types, and to export the final result:
 
 ```php
 use Belin\Lcov\{FunctionCoverage, LineCoverage, LineData, Report, SourceFile};
@@ -35,4 +35,4 @@ end_of_record
 
 > [!TIP]
 > See the [source code](https://github.com/CedX/Lcov.php/tree/main/Sources) of this library
-> for detailed information on the available classes.
+> for detailed information on the available types.
