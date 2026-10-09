@@ -9,7 +9,7 @@ use function PHPUnit\Framework\{assertCount, assertEmpty, assertEquals, assertIn
  * Tests the features of the {@see Report} class.
  */
 #[TestDox("Report")]
-final class ReportTests extends TestCase {
+class ReportTests extends TestCase {
 
 	/**
 	 * The test fixture.

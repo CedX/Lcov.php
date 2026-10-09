@@ -9,7 +9,7 @@ use function PHPUnit\Framework\assertEquals;
  * Tests the features of the {@see FunctionCoverage} class.
  */
 #[TestDox("FunctionCoverage")]
-final class FunctionCoverageTests extends TestCase {
+class FunctionCoverageTests extends TestCase {
 
 	#[Test, TestDox("__toString()")]
 	public function testToString(): void {

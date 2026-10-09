@@ -9,7 +9,7 @@ use function PHPUnit\Framework\assertEquals;
  * Tests the features of the {@see FunctionData} class.
  */
 #[TestDox("FunctionData")]
-final class FunctionDataTests extends TestCase {
+class FunctionDataTests extends TestCase {
 
 	#[Test, TestDox("__toString()")]
 	public function testToString(): void {

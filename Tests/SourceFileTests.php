@@ -9,7 +9,7 @@ use function PHPUnit\Framework\assertEquals;
  * Tests the features of the {@see SourceFile} class.
  */
 #[TestDox("SourceFile")]
-final class SourceFileTests extends TestCase {
+class SourceFileTests extends TestCase {
 
 	#[Test, TestDox("__toString()")]
 	public function testToString(): void {

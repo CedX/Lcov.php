@@ -9,7 +9,7 @@ use function PHPUnit\Framework\assertEquals;
  * Tests the features of the {@see BranchData} class.
  */
 #[TestDox("BranchData")]
-final class BranchDataTests extends TestCase {
+class BranchDataTests extends TestCase {
 
 	#[Test, TestDox("__toString()")]
 	public function testToString(): void {
