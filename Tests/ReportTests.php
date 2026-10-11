@@ -30,7 +30,7 @@ class ReportTests extends TestCase {
 		$report->testName |> shouldBe("Example");
 
 		// It should contain three source files.
-		count($report->sourceFiles) |> shouldBe(3);
+		$report->sourceFiles |> count(...) |> shouldBe(3);
 		$report->sourceFiles[0] |> shouldBeOfType(SourceFile::class);
 		$report->sourceFiles[0]->path |> shouldBe("/home/CedX/Lcov.php/Fixture.php");
 		$report->sourceFiles[1]->path |> shouldBe("/home/CedX/Lcov.php/Func1.php");
@@ -39,7 +39,7 @@ class ReportTests extends TestCase {
 		// It should have detailed branch coverage.
 		/** @var BranchCoverage $branches */
 		$branches = $report->sourceFiles[1]->branches;
-		count($branches->data) |> shouldBe(4);
+		$branches->data |> count(...) |> shouldBe(4);
 		$branches->found |> shouldBe(4);
 		$branches->hit |> shouldBe(4);
 
@@ -50,7 +50,7 @@ class ReportTests extends TestCase {
 		// It should have detailed function coverage.
 		/** @var FunctionCoverage $functions */
 		$functions = $report->sourceFiles[1]->functions;
-		count($functions->data) |> shouldBe(1);
+		$functions->data |> count(...) |> shouldBe(1);
 		$functions->found |> shouldBe(1);
 		$functions->hit |> shouldBe(1);
 
@@ -61,7 +61,7 @@ class ReportTests extends TestCase {
 		// It should have detailed line coverage.
 		/** @var LineCoverage $lines */
 		$lines = $report->sourceFiles[1]->lines;
-		count($lines->data) |> shouldBe(9);
+		$lines->data |> count(...) |> shouldBe(9);
 		$lines->found |> shouldBe(9);
 		$lines->hit |> shouldBe(9);
 

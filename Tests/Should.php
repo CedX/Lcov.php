@@ -38,11 +38,19 @@ function shouldBeNull(): \Closure {
 
 /**
  * Tests whether the specified object is an instance of the expected type.
- * @param class-string<object> $expectedType The expected type.
+ * @param string $expectedType The expected type.
  * @return \Closure The closure that tests whether the specified object is an instance of the expected type.
  */
 function shouldBeOfType(string $expectedType): \Closure {
-	return static fn($value) => Assert::assertInstanceOf($expectedType, $value);
+	return match ($expectedType) {
+		"array" => static fn($value) => Assert::assertIsArray($value),
+		"bool", "boolean" => static fn($value) => Assert::assertIsBool($value),
+		"double", "float" => static fn($value) => Assert::assertIsFloat($value),
+		"int", "integer" => static fn($value) => Assert::assertIsInt($value),
+		"object" => static fn($value) => Assert::assertIsObject($value),
+		"string" => static fn($value) => Assert::assertIsString($value),
+		default => static fn($value) => Assert::assertInstanceOf($expectedType, $value) // @phpstan-ignore argument.type
+	};
 }
 
 /**
