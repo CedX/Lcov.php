@@ -3,7 +3,6 @@ namespace Belin\Lcov;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\{Test, TestDox};
-use function PHPUnit\Framework\assertEquals;
 
 /**
  * Tests the features of the {@see BranchCoverage} class.
@@ -13,9 +12,9 @@ class BranchCoverageTests extends TestCase {
 
 	#[Test, TestDox("__toString()")]
 	public function testToString(): void {
-		assertEquals("BRF:0\nBRH:0", (string) new BranchCoverage);
+		(string) new BranchCoverage |> shouldBe("BRF:0\nBRH:0");
 
 		$data = new BranchData(blockNumber: 3, branchNumber: 2, lineNumber: 127, taken: 1);
-		assertEquals("$data\nBRF:23\nBRH:11", (string) new BranchCoverage(data: [$data], found: 23, hit: 11));
+		(string) new BranchCoverage(data: [$data], found: 23, hit: 11) |> shouldBe("$data\nBRF:23\nBRH:11");
 	}
 }

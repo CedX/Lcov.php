@@ -3,7 +3,6 @@ namespace Belin\Lcov;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\{Test, TestDox};
-use function PHPUnit\Framework\assertEquals;
 
 /**
  * Tests the features of the {@see LineCoverage} class.
@@ -13,9 +12,9 @@ class LineCoverageTests extends TestCase {
 
 	#[Test, TestDox("__toString()")]
 	public function testToString(): void {
-		assertEquals("LF:0\nLH:0", (string) new LineCoverage);
+		(string) new LineCoverage |> shouldBe("LF:0\nLH:0");
 
 		$data = new LineData(executionCount: 3, lineNumber: 127);
-		assertEquals("$data\nLF:23\nLH:11", (string) new LineCoverage(data: [$data], found: 23, hit: 11));
+		(string) new LineCoverage(data: [$data], found: 23, hit: 11) |> shouldBe("$data\nLF:23\nLH:11");
 	}
 }

@@ -12,6 +12,7 @@
 		"psr-4": {"Belin\\Lcov\\": "Sources/"}
 	},
 	"autoload-dev": {
+		"files": ["Tests/Should.php"],
 		"psr-4": {"Belin\\Lcov\\": "Tests/"}
 	},
 	"config": {

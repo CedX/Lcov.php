@@ -3,7 +3,6 @@ namespace Belin\Lcov;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\{Test, TestDox};
-use function PHPUnit\Framework\assertEquals;
 
 /**
  * Tests the features of the {@see SourceFile} class.
@@ -13,10 +12,10 @@ class SourceFileTests extends TestCase {
 
 	#[Test, TestDox("__toString()")]
 	public function testToString(): void {
-		assertEquals("SF:\nend_of_record", (string) new SourceFile(""));
+		(string) new SourceFile("") |> shouldBe("SF:\nend_of_record");
 
 		$sourceFile = SourceFile::withCoverage("/home/CedX/Lcov.php");
 		$format = "SF:/home/CedX/Lcov.php\n$sourceFile->functions\n$sourceFile->branches\n$sourceFile->lines\nend_of_record";
-		assertEquals($format, (string) $sourceFile);
+		(string) $sourceFile |> shouldBe($format);
 	}
 }

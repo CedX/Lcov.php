@@ -3,7 +3,6 @@ namespace Belin\Lcov;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\{Test, TestDox};
-use function PHPUnit\Framework\{assertCount, assertEmpty, assertEquals, assertInstanceOf, assertNull};
 
 /**
  * Tests the features of the {@see Report} class.
@@ -28,47 +27,47 @@ class ReportTests extends TestCase {
 		$report = Report::parse(self::$coverage);
 
 		// It should have a test name.
-		assertEquals("Example", $report->testName);
+		$report->testName |> shouldBe("Example");
 
 		// It should contain three source files.
-		assertCount(3, $report->sourceFiles);
-		assertInstanceOf(SourceFile::class, $report->sourceFiles[0]);
-		assertEquals("/home/CedX/Lcov.php/Fixture.php", $report->sourceFiles[0]->path);
-		assertEquals("/home/CedX/Lcov.php/Func1.php", $report->sourceFiles[1]->path);
-		assertEquals("/home/CedX/Lcov.php/Func2.php", $report->sourceFiles[2]->path);
+		count($report->sourceFiles) |> shouldBe(3);
+		$report->sourceFiles[0] |> shouldBeOfType(SourceFile::class);
+		$report->sourceFiles[0]->path |> shouldBe("/home/CedX/Lcov.php/Fixture.php");
+		$report->sourceFiles[1]->path |> shouldBe("/home/CedX/Lcov.php/Func1.php");
+		$report->sourceFiles[2]->path |> shouldBe("/home/CedX/Lcov.php/Func2.php");
 
 		// It should have detailed branch coverage.
 		/** @var BranchCoverage $branches */
 		$branches = $report->sourceFiles[1]->branches;
-		assertCount(4, $branches->data);
-		assertEquals(4, $branches->found);
-		assertEquals(4, $branches->hit);
+		count($branches->data) |> shouldBe(4);
+		$branches->found |> shouldBe(4);
+		$branches->hit |> shouldBe(4);
 
 		[$data] = $branches->data;
-		assertInstanceOf(BranchData::class, $data);
-		assertEquals(8, $data->lineNumber);
+		$data |> shouldBeOfType(BranchData::class);
+		$data->lineNumber |> shouldBe(8);
 
 		// It should have detailed function coverage.
 		/** @var FunctionCoverage $functions */
 		$functions = $report->sourceFiles[1]->functions;
-		assertCount(1, $functions->data);
-		assertEquals(1, $functions->found);
-		assertEquals(1, $functions->hit);
+		count($functions->data) |> shouldBe(1);
+		$functions->found |> shouldBe(1);
+		$functions->hit |> shouldBe(1);
 
 		[$data] = $functions->data;
-		assertInstanceOf(FunctionData::class, $data);
-		assertEquals("func1", $data->functionName);
+		$data |> shouldBeOfType(FunctionData::class);
+		$data->functionName |> shouldBe("func1");
 
 		// It should have detailed line coverage.
 		/** @var LineCoverage $lines */
 		$lines = $report->sourceFiles[1]->lines;
-		assertCount(9, $lines->data);
-		assertEquals(9, $lines->found);
-		assertEquals(9, $lines->hit);
+		count($lines->data) |> shouldBe(9);
+		$lines->found |> shouldBe(9);
+		$lines->hit |> shouldBe(9);
 
 		[$data] = $lines->data;
-		assertInstanceOf(LineData::class, $data);
-		assertEquals("5kX7OTfHFcjnS98fjeVqNA", $data->checksum);
+		$data |> shouldBeOfType(LineData::class);
+		$data->checksum |> shouldBe("5kX7OTfHFcjnS98fjeVqNA");
 
 		// It should throw an exception if the report is invalid or empty.
 		$this->expectException(\InvalidArgumentException::class);
@@ -77,15 +76,15 @@ class ReportTests extends TestCase {
 
 	#[Test, TestDox("tryParse()")]
 	public function tryParse(): void {
-		assertInstanceOf(Report::class, Report::tryParse(self::$coverage));
-		assertNull(Report::tryParse("TN:Example"));
+		Report::tryParse(self::$coverage) |> shouldBeOfType(Report::class);
+		Report::tryParse("TN:Example") |> shouldBeNull();
 	}
 
 	#[Test, TestDox("__toString()")]
 	public function testToString(): void {
-		assertEmpty((string) new Report(""));
+		(string) new Report("") |> shouldBeEmpty();
 
 		$sourceFile = new SourceFile("");
-		assertEquals("TN:LcovTest\n$sourceFile", (string) new Report("LcovTest", [$sourceFile]));
+		(string) new Report("LcovTest", [$sourceFile]) |> shouldBe("TN:LcovTest\n$sourceFile");
 	}
 }
