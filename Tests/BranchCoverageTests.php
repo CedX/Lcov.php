@@ -12,9 +12,9 @@ class BranchCoverageTests extends TestCase {
 
 	#[Test, TestDox("__toString()")]
 	public function testToString(): void {
-		(string) new BranchCoverage |> shouldBe("BRF:0\nBRH:0");
+		(string) new BranchCoverage |> Should::be("BRF:0\nBRH:0");
 
 		$data = new BranchData(blockNumber: 3, branchNumber: 2, lineNumber: 127, taken: 1);
-		(string) new BranchCoverage(data: [$data], found: 23, hit: 11) |> shouldBe("$data\nBRF:23\nBRH:11");
+		(string) new BranchCoverage(data: [$data], found: 23, hit: 11) |> Should::be("$data\nBRF:23\nBRH:11");
 	}
 }

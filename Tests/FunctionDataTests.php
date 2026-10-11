@@ -12,7 +12,7 @@ class FunctionDataTests extends TestCase {
 
 	#[Test, TestDox("__toString()")]
 	public function testToString(): void {
-		(string) new FunctionData |> shouldBe("FN:0,\nFNDA:0,");
-		(string) new FunctionData(executionCount: 3, functionName: "main", lineNumber: 127) |> shouldBe("FN:127,main\nFNDA:3,main");
+		(string) new FunctionData |> Should::be("FN:0,\nFNDA:0,");
+		(string) new FunctionData(executionCount: 3, functionName: "main", lineNumber: 127) |> Should::be("FN:127,main\nFNDA:3,main");
 	}
 }

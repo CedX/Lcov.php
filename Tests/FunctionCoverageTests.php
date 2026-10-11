@@ -12,9 +12,9 @@ class FunctionCoverageTests extends TestCase {
 
 	#[Test, TestDox("__toString()")]
 	public function testToString(): void {
-		(string) new FunctionCoverage |> shouldBe("FNF:0\nFNH:0");
+		(string) new FunctionCoverage |> Should::be("FNF:0\nFNH:0");
 
 		$data = new FunctionData(executionCount: 3, functionName: "main", lineNumber: 127);
-		(string) new FunctionCoverage(data: [$data], found: 23, hit: 11) |> shouldBe("$data\nFNF:23\nFNH:11");
+		(string) new FunctionCoverage(data: [$data], found: 23, hit: 11) |> Should::be("$data\nFNF:23\nFNH:11");
 	}
 }
