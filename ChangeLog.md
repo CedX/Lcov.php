@@ -1,5 +1,10 @@
 # Changelog
 
+## Version [2026.10.0](https://github.com/CedX/Lcov.php/compare/v12.1.0...v2026.10.0)
+- Added the `SourceFile::withCoverage()` method.
+- Removed the `final` modifier from the classes.
+- Switched to a year-based versioning.
+
 ## Version [12.1.0](https://github.com/CedX/Lcov.php/compare/v12.0.0...v12.1.0)
 - Removed the `FunctionData->toString()` method.
 
