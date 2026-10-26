@@ -10,4 +10,4 @@ $lines = new LineCoverage(found: 2, hit: 2, data: [
 
 $sourceFile = new SourceFile("/home/CedX/Lcov.php/Fixture.php", functions: $functions, lines: $lines);
 $report = new Report("Example", [$sourceFile]);
-print $report;
+echo $report;

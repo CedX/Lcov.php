@@ -16,7 +16,7 @@ $sourceFile = new SourceFile(
 );
 
 $report = new Report("Example", [$sourceFile]);
-print $report;
+echo $report;
 ```
 
 The `Report->__toString()` method will return a [LCOV](https://github.com/linux-test-project/lcov) report formatted like this:

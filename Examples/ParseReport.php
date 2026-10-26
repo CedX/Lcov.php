@@ -5,9 +5,9 @@ use Belin\Lcov\Report;
 try {
 	$report = Report::parse((string) file_get_contents("/path/to/lcov.info"));
 	$count = count($report->sourceFiles);
-	print "The coverage report contains $count source files:" . PHP_EOL;
-	print json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+	echo "The coverage report contains $count source files:", PHP_EOL;
+	echo json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 }
 catch (InvalidArgumentException $e) {
-	print $e->getMessage();
+	echo $e->getMessage();
 }
